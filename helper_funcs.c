@@ -30,10 +30,11 @@ int is_valid(char *line)
  * add_node_end - adds a node to the end of a linked list
  * @head: pointer to the head of the list
  * @str: string to be used as content of the newly added node
+ * @line_n: line number of the string in a file
  *
  * Return: address of the newly added node
  */
-list_t *add_node_end(list_t **head, char *str)
+list_t *add_node_end(list_t **head, char *str, int line_n)
 {
 	list_t *new_node;
 	list_t *cursor = *head;
@@ -42,6 +43,7 @@ list_t *add_node_end(list_t **head, char *str)
 	if (new_node != NULL)
 	{
 		new_node->str = strdup(str);
+		new_node->line_n = line_n;
 		new_node->next = NULL;
 	}
 	else
