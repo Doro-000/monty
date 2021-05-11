@@ -6,6 +6,8 @@
  * @n: integer
  * @prev: points to the previous element of the stack (or queue)
  * @next: points to the next element of the stack (or queue)
+ *
+ *Description: doublt linked list node structure for stack
  */
 typedef struct stack_s
 {
@@ -18,12 +20,29 @@ typedef struct stack_s
  * struct instruction_s - opcode and its function
  * @opcode: the opcode
  * @f: function to handle the opcode
+ *
+ * Description: structure to map an opcode with a function
  */
 typedef struct instruction_s
 {
         char *opcode;
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+
+/**
+ * struct list_s - singly linked list
+ * @str: string - (malloc'ed string)
+ * @len: length of the string
+ * @next: points to the next node
+ *
+ * Description: singly linked list node structure
+ * to store a string
+ */
+typedef struct list_s
+{
+	char *str;
+	struct list_s *next;
+} list_t;
 
 /* stack_queue */
 stack_t *push_value(stack_t **head, int n);
