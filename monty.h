@@ -25,5 +25,9 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+stack_t *push_value(stack_t **head, int n);
+stack_t *pop_value(stack_t **head);
+void print_stack(stack_t *h);
+stack_t *get_value(stack_t *head);
 
 #endif /*MONTY_H*/
