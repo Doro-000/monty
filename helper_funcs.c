@@ -58,6 +58,28 @@ list_t *add_node_end(list_t **head, char *str)
 }
 
 /**
+ * free_list - frees a linked list
+ * @head: head of the list
+ *
+ * Return: void
+ */
+void free_list(list_t *head)
+{
+	list_t *temp;
+
+	if (head != NULL)
+	{
+		while (head != NULL)
+		{
+			temp = head;
+			head = head->next;
+			free(temp->str);
+			free(temp);
+		}
+	}
+}
+
+/**
  * remove_newline - removes new line from a string
  * @str: string to be used
  *
