@@ -32,15 +32,16 @@ typedef struct instruction_s
 /**
  * struct list_s - singly linked list
  * @str: string - (malloc'ed string)
- * @len: length of the string
+ * @line_n: line number
  * @next: points to the next node
  *
  * Description: singly linked list node structure
- * to store a string
+ * to store contents of a file
  */
 typedef struct list_s
 {
 	char *str;
+	int line_n;
 	struct list_s *next;
 } list_t;
 
