@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
 	stack_t *main_stack = NULL;
 	list_t *cursor = monty_file_content;
 	char *current_line = NULL;
-	int n = 0, line_num = 1;
+	unsigned int n = 0, line_num = 1;
 	FILE *monty_file = NULL;
 
 	if (argc != 2)
