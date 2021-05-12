@@ -36,7 +36,7 @@ int is_valid(char *line)
  *
  * Return: address of the newly added node
  */
-list_t *add_node_end(list_t **head, char *str, int line_n)
+list_t *add_node_end(list_t **head, char *str, unsigned int line_n)
 {
 	list_t *new_node;
 	list_t *cursor = *head;
