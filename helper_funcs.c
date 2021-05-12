@@ -1,5 +1,7 @@
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
 #include "monty.h"
-
 
 /**
  * is_valid - validates if a string is a valid instruction
