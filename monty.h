@@ -41,7 +41,7 @@ typedef struct instruction_s
 typedef struct list_s
 {
 	char *str;
-	int line_n;
+	unsigned int line_n;
 	struct list_s *next;
 } list_t;
 
