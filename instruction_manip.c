@@ -25,14 +25,14 @@ void get_opcode(char *instruction, char *store)
  *
  * Return: void
  */
-void get_operand(char *instruction, int *store)
+void get_operand(char *instruction, int *store __attribute__((unused)))
 {
 	char *temp = strdup(instruction);
 	char *temp_2 = strtok(temp, " ");
 	int flag = 0;
 	temp_2 = strtok(NULL, " ");
 	if (temp_2 == NULL)
-		store = NULL
+		store = NULL;
 	else
 	{
 		while (*temp_2)
