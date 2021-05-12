@@ -45,6 +45,8 @@ typedef struct list_s
 	struct list_s *next;
 } list_t;
 
+extern list_t *monty_file_content;
+
 /*main_monty*/
 void execute_instruction(stack_t **stack, list_t *instruction);
 
