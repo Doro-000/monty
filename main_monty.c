@@ -42,13 +42,13 @@ int main(int argc, char *argv[])
 		}
 		line_num++;
 	}
+	free(current_line);
 	while (cursor != NULL)
 	{
 		execute_instruction(&stack, cursor);
 		cursor = cursor->next;
 	}
 	free_list(monty_file_content);
-	free(current_line);
 	return (0);
 }
 
@@ -71,7 +71,7 @@ void execute_instruction(stack_t **stack, list_t *instruction)
 		free(monty_file_content);
 		exit(EXIT_FAILURE);
 	}
-	get_opcode(instruction->str, &current_opcode);/*[TODO] : make get_opcode*/
+	get_opcode(instruction->str, current_opcode);
 	for (i = 0; i < 6; i++)
 	{
 		if (strcmp(current_opcode, opcode_map[i].opcode) == 0)
