@@ -67,7 +67,7 @@ void execute_instruction(stack_t **stack, list_t *instruction)
 	{
 		temp = instruction->line_n /*betty*/
 		fprintf(stderr, "L%d: unknown instruction %s", temp, strtok(instruction->str, " "));
-		free(monty_file_content);
+		free_list(monty_file_content);
 		/*free stack*/
 		exit(EXIT_FAILURE);
 	}
