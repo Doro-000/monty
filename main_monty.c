@@ -1,6 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include "monty.h"
 
 list_t *monty_file_content = NULL;
@@ -58,7 +55,7 @@ void execute_instruction(stack_t **stack, list_t *instruction)
 	instruction_t opcode_map[] = {
 		{"push", push}, {"pall", pall}
 	};
-	int i, temp;
+	int i, temp __attribute__((unused));
 	char current_opcode[10];
 	void (*current_f)(stack_t **stack, unsigned int line_number);
 
@@ -66,7 +63,7 @@ void execute_instruction(stack_t **stack, list_t *instruction)
 		return;
 	if (!is_valid(instruction->str))
 	{
-		temp = instruction->line_n /*betty*/
+		temp = instruction->line_n; /*betty*/
 		fprintf(stderr, "L%d: unknown instruction %s", temp, strtok(instruction->str, " "));
 		free_list(monty_file_content);
 		/*free stack*/
@@ -81,5 +78,5 @@ void execute_instruction(stack_t **stack, list_t *instruction)
 			break;
 		}
 	}
-	current_f(&stack, instruction->line_n);
+	current_f(stack, instruction->line_n);
 }
