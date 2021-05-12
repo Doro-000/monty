@@ -10,7 +10,7 @@
  */
 void push(stack_t **stack, unsigned int line_number)
 {
-	int operand = 0;
+	int operand;
 	int *operand_ptr = &operand;
 	list_t *instruction = NULL;
 	list_t *cursor = monty_file_content;
@@ -23,6 +23,7 @@ void push(stack_t **stack, unsigned int line_number)
 			instruction = cursor;
 			break;
 		}
+		cursor = cursor->next;
 	}
 	get_operand(instruction->str, operand_ptr);
 	if (operand_ptr == NULL)
@@ -54,7 +55,7 @@ void pall(stack_t **stack, unsigned int line_number __attribute__((unused)))
 {
 	stack_t *cursor = *stack;
 	int i;
-	
+
 	for (i = 0; cursor != NULL; i++)
 	{
 		printf("%d\n", cursor->n);

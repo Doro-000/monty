@@ -11,6 +11,7 @@
 void get_opcode(char *instruction, char *store)
 {
 	char *temp = strdup(instruction);
+
 	strcpy(store, strtok(temp, " "));
 	free(temp);
 }
@@ -23,17 +24,21 @@ void get_opcode(char *instruction, char *store)
  *
  * Return: void
  */
-void get_operand(char *instruction, int *store __attribute__((unused)))
+void get_operand(char *instruction, int *store)
 {
 	char *temp = strdup(instruction);
 	char *temp_2 = strtok(temp, " ");
-	int flag = 0;
+	int flag = 0, i = 0;
+
 	temp_2 = strtok(NULL, " ");
 	if (temp_2 == NULL)
+	{
+		flag = 1;
 		store = NULL;
+	}
 	else
 	{
-		while (*temp_2)
+		while (temp_2[i])
 		{
 			if ((*temp_2 < 48) && (*temp_2 > 57))
 			{
@@ -41,6 +46,7 @@ void get_operand(char *instruction, int *store __attribute__((unused)))
 				store = NULL;
 				break;
 			}
+			i++;
 		}
 	}
 	if (!flag)

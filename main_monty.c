@@ -12,11 +12,12 @@ list_t *monty_file_content = NULL;
 int main(int argc, char *argv[])
 {
 	stack_t *main_stack = NULL;
-	list_t *cursor = monty_file_content;
+	list_t *cursor = NULL, *temp = NULL;
 	char *current_line = NULL;
 	unsigned int line_num = 1;
 	size_t n = 0;
 	FILE *monty_file = NULL;
+
 
 	if (argc != 2)
 	{
@@ -26,21 +27,23 @@ int main(int argc, char *argv[])
 	monty_file = fopen(argv[1], "r");
 	if (monty_file == NULL)
 	{
-		fprintf(stderr, "Error: Can't open file %s\n", "HANDLE LATER");
+		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
 	while (getline(&current_line, &n, monty_file) != -1)
 	{
-		if (add_node_end(&monty_file_content, current_line, line_num) == NULL)
+		temp = add_node_end(&monty_file_content, current_line, line_num++);
+		if (temp == NULL)
 		{
 			fprintf(stderr, "Error: malloc failed\n");
 			free_list(monty_file_content);
 			free(current_line);
 			exit(EXIT_FAILURE);
 		}
-		line_num++;
 	}
 	free(current_line);
+	fclose(monty_file);
+	cursor = monty_file_content;
 	while (cursor != NULL)
 	{
 		execute_instruction(&main_stack, cursor);
@@ -50,21 +53,29 @@ int main(int argc, char *argv[])
 	return (0);
 }
 
+/**
+ * execute_instruction - executes an instruction
+ * @stack: stack to be used
+ * @instruction: instruction node containing info about the instruction
+ *
+ * Return: void
+ */
 void execute_instruction(stack_t **stack, list_t *instruction)
 {
 	instruction_t opcode_map[] = {
 		{"push", push}, {"pall", pall}
 	};
-	int i, temp __attribute__((unused));
-	char current_opcode[10];
-	void (*current_f)(stack_t **stack, unsigned int line_number);
+	int i, line_n;
+	char current_opcode[10], *invalid_inst;
+	void (*current_f)(stack_t **stack, unsigned int line_number) = NULL;
 
 	if (strlen(instruction->str) == 0)
 		return;
 	if (!is_valid(instruction->str))
 	{
-		temp = instruction->line_n; /*betty*/
-		fprintf(stderr, "L%d: unknown instruction %s", temp, strtok(instruction->str, " "));
+		line_n = instruction->line_n; /*betty*/
+		invalid_inst = strtok(instruction->str, " ");
+		fprintf(stderr, "L%d: unknown instruction %s", line_n, invalid_inst);
 		free_list(monty_file_content);
 		/*free stack*/
 		exit(EXIT_FAILURE);

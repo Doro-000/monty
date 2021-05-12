@@ -9,10 +9,11 @@
 int is_valid(char *line)
 {
 	int i;
-	char *opcodes[] = {"push", "pall", "pint", "pop", "swap", "add", "sub", "div", 
+	char *opcodes[] = {"push", "pall", "pint", "pop", "swap", "add", "sub", "div",
 			   "mul", "mod", "pchar", "pstr", "rotl", "rotr", "stack", "queue", NULL};
 	char *temp = strdup(line);
 	char *first_string = strtok(temp, " ");
+
 	for (i = 0; opcodes[i] != NULL; i++)
 	{
 		if (strcmp(first_string, opcodes[i]) == 0)
