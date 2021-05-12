@@ -52,23 +52,6 @@ stack_t *pop_value(stack_t **head)
 }
 
 /**
- * print_stack - prints a stack to STDOUT
- * @h: top of the stack/ head of doubly linked list
- *
- * Return: void
- */
-void print_stack(stack_t *h)
-{
-	stack_t *cursor = h;
-
-	for (i = 0; cursor != NULL; i++)
-	{
-		printf("%d\n", cursor->n);
-		cursor = cursor->next;
-	}
-}
-
-/**
  * get_value - gets the top of the stack
  * @head: top of the stack/ head of doubly linked list
  *
