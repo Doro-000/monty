@@ -17,7 +17,8 @@ int main(int argc, char *argv[])
 	stack_t *main_stack = NULL;
 	list_t *cursor = monty_file_content;
 	char *current_line = NULL;
-	unsigned int n = 0, line_num = 1;
+	unsigned int line_num = 1;
+	size_t n = 0;
 	FILE *monty_file = NULL;
 
 	if (argc != 2)
@@ -45,7 +46,7 @@ int main(int argc, char *argv[])
 	free(current_line);
 	while (cursor != NULL)
 	{
-		execute_instruction(&stack, cursor);
+		execute_instruction(&main_stack, cursor);
 		cursor = cursor->next;
 	}
 	free_list(monty_file_content);
