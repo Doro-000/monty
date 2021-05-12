@@ -55,8 +55,7 @@ int main(int argc, char *argv[])
 void execute_instruction(stack_t **stack, list_t *instruction)
 {
 	instruction_t opcode_map[] = {
-		{"push", push}, {"pall", pall}, {"pint", pint},
-		{"pop", pop}, {"swap", swap}, {"add", add}
+		{"push", push}, {"pall", pall}
 	};
 	int i, temp;
 	char current_opcode[10];
@@ -69,10 +68,11 @@ void execute_instruction(stack_t **stack, list_t *instruction)
 		temp = instruction->line_n /*betty*/
 		fprintf(stderr, "L%d: unknown instruction %s", temp, strtok(instruction->str, " "));
 		free(monty_file_content);
+		/*free stack*/
 		exit(EXIT_FAILURE);
 	}
 	get_opcode(instruction->str, current_opcode);
-	for (i = 0; i < 6; i++)
+	for (i = 0; i < 2; i++)
 	{
 		if (strcmp(current_opcode, opcode_map[i].opcode) == 0)
 		{
