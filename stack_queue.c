@@ -38,12 +38,11 @@ stack_t *push_value(stack_t **head, int n)
  */
 stack_t *pop_value(stack_t **head)
 {
-	int i;
 	stack_t *popped = NULL;
 
 	if (head == NULL)
 		return (NULL);
-	if (cursor == NULL)
+	if (*head == NULL)
 		return (NULL);
 	popped = *head;
 	(*head) = (*head)->next;
