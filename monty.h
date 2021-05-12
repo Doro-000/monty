@@ -45,15 +45,27 @@ typedef struct list_s
 	struct list_s *next;
 } list_t;
 
+/*main_monty*/
+void execute_instruction(stack_t **stack, list_t *instruction);
+
 /* stack_queue */
 stack_t *push_value(stack_t **head, int n);
 stack_t *pop_value(stack_t **head);
-void print_stack(stack_t *h);
 stack_t *get_value(stack_t *head);
 
 /* helper_funcs */
 int is_valid(char *line);
+list_t *add_node_end(list_t **head, char *str, unsigned int line_n);
+void free_list(list_t *head);
 void remove_newline(char *str);
+
+/*instruction_manip*/
+void get_opcode(char *instruction, char *store);
+void get_operand(char *instruction, int *store);
+
+/*op_funcs.c*/
+void push(stack_t **stack, unsigned int line_number);
+void pall(stack_t **stack, unsigned int line_number __attribute__((unused)));
 
 
 #endif /*MONTY_H*/
