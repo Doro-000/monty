@@ -29,7 +29,7 @@ void push(stack_t **stack, unsigned int line_number)
 	if (operand_ptr == NULL)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
-		free(monty_file_content);
+		free_list(monty_file_content);
 		/*free stack*/
 		exit(EXIT_FAILURE);
 	}
@@ -37,7 +37,7 @@ void push(stack_t **stack, unsigned int line_number)
 	if (top == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
-		free(monty_file_content);
+		free_list(monty_file_content);
 		/*free stack*/
 		exit(EXIT_FAILURE);
 	}
