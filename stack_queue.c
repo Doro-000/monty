@@ -3,16 +3,14 @@
 
 /**
  * push_value - pushes a number to the top of a stack
- * @head: bottom of the stack
+ * @head: top of the stack/ head of doubly linked list
  * @n: number to be pushed
  *
  * Return: the address of the new element
  */
 stack_t *push_value(stack_t **head, int n)
 {
-	int i;
 	stack_t *new = NULL;
-	stack_t *cursor = *head;
 
 	new = malloc(sizeof(*new));
 	if (new == NULL || head == NULL)
@@ -25,47 +23,37 @@ stack_t *push_value(stack_t **head, int n)
 		*head = new;
 		return (new);
 	}
-	for (i = 0; cursor->next != NULL; i++)
-		cursor = cursor->next;
-	cursor->next = new;
-	new->prev = cursor;
+	new->next = *head;
+	(*head)->prev = new;
+	*head = new;
 
 	return (new);
 }
 
 /**
  * pop_value - pops the top of a stack
- * @head: bottom of the stack
+ * @head: top of the stack/ head of doubly linked list
  *
  * Return: the removed element
  */
 stack_t *pop_value(stack_t **head)
 {
 	int i;
-	stack_t *cursor = *head;
 	stack_t *popped = NULL;
 
 	if (head == NULL)
 		return (NULL);
 	if (cursor == NULL)
 		return (NULL);
-	if (cursor->next == NULL)
-	{
-		popped = cursor;
-		(*head) = NULL;
-		return (popped);
-	}
-	for (i = 0; cursor->next != NULL; i++)
-		cursor = cursor->next;
-	popped = cursor;
-	(popped->prev)->next = NULL;
-	popped->prev = NULL;
+	popped = *head;
+	(*head) = (*head)->next;
+	(*head)->prev = NULL;
 	return (popped);
 }
 
 /**
  * print_stack - prints a stack to STDOUT
- * @h: bottom of the stack
+ * @h: top of the stack/ head of doubly linked list
  *
  * Return: void
  */
@@ -73,29 +61,22 @@ void print_stack(stack_t *h)
 {
 	stack_t *cursor = h;
 
-	for (i = 0; cursor->next != NULL; i++)
-		cursor = cursor->next;
 	for (i = 0; cursor != NULL; i++)
 	{
 		printf("%d\n", cursor->n);
-		cursor = cursor->prev;
+		cursor = cursor->next;
 	}
 }
 
 /**
  * get_value - gets the top of the stack
- * @head: bottom of the stack
+ * @head: top of the stack/ head of doubly linked list
  *
  * Return: the top of the stack
  */
 stack_t *get_value(stack_t *head)
 {
-	int i;
-	stack_t *cursor = head;
-
-	if (cursor == NULL)
+	if (head == NULL)
 		return (NULL);
-	for (i = 0; cursor->next != NULL; i++)
-		cursor = cursor->next;
-	return (cursor);
+	return (head);
 }
