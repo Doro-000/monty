@@ -42,3 +42,22 @@ void push(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 }
+
+
+/**
+ * pall - prints the stack
+ * @stack: top of the stack/ head of doubly linked list
+ * @line_number: line number of the instruction
+ *
+ * Return: void
+ */
+void pall(stack_t **stack, unsigned int line_number __attribute__((unused)))
+{
+	stack_t *cursor = *stack;
+
+	for (i = 0; cursor != NULL; i++)
+	{
+		printf("%d\n", cursor->n);
+		cursor = cursor->next;
+	}
+}
