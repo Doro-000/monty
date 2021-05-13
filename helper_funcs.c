@@ -132,4 +132,6 @@ void file_into_list(FILE *stream)
 			exit(EXIT_FAILURE);
 		}
 	}
+	free(current_line);
+	fclose(stream);
 }
