@@ -10,7 +10,7 @@
 int is_comment(char *line)
 {
 	char *temp = strdup(line);
-	char *temp_2 = strok(temp, " ");
+	char *temp_2 = strtok(temp, " ");
 
 	if (temp_2 == NULL)
 	{
