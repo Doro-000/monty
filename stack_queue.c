@@ -51,16 +51,19 @@ stack_t *pop_value(stack_t **head)
 }
 
 /**
- * get_value - gets the top of the stack
- * @head: top of the stack/ head of doubly linked list
+ * dlistint_len - counts the number of nodes in a linked list
+ * @h: top of the stack/ head of doubly linked list
  *
- * Return: the top of the stack
+ * Return: number of nodes
  */
-stack_t *get_value(stack_t *head)
+int stack_len(stack_t *h)
 {
-	if (head == NULL)
-		return (NULL);
-	return (head);
+	int i;
+	stack_t *cursor = h;
+
+	for (i = 0; cursor != NULL; i++)
+		cursor = cursor->next;
+	return (i);
 }
 
 /**
