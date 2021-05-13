@@ -65,6 +65,7 @@ int is_valid(char *line);
 list_t *add_node_end(list_t **head, char *str, unsigned int line_n);
 void free_list(list_t *head);
 void remove_unprintable(char *str);
+void file_into_list(FILE *stream);
 
 /*instruction_manip*/
 void get_opcode(char *instruction, char *store);
