@@ -32,6 +32,7 @@ int main(int argc, char *argv[])
 	}
 	while (getline(&current_line, &n, monty_file) != -1)
 	{
+		remove_unprintable(current_line);
 		temp = add_node_end(&monty_file_content, current_line, line_num++);
 		if (temp == NULL)
 		{
@@ -68,10 +69,12 @@ void execute_instruction(stack_t **stack, list_t *instruction)
 	int i, line_n;
 	char current_opcode[10], *invalid_inst;
 	void (*current_f)(stack_t **stack, unsigned int line_number) = NULL;
+	int status;
 
 	if (strlen(instruction->str) == 0)
 		return;
-	if (!is_valid(instruction->str))
+	status = is_valid(instruction->str)
+	if (!status)
 	{
 		line_n = instruction->line_n; /*betty*/
 		invalid_inst = strtok(instruction->str, " ");
@@ -80,6 +83,8 @@ void execute_instruction(stack_t **stack, list_t *instruction)
 		/*free stack*/
 		exit(EXIT_FAILURE);
 	}
+	else if (status == -1)
+		return (-1);
 	get_opcode(instruction->str, current_opcode);
 	for (i = 0; i < 2; i++)
 	{
