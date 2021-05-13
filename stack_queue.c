@@ -71,7 +71,7 @@ stack_t *get_value(stack_t *head)
  */
 void free_stack(stack_t *head)
 {
-	dlistint_t *temp = NULL;
+	stack_t *temp = NULL;
 
 	while (head != NULL)
 	{

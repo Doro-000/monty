@@ -58,6 +58,7 @@ void execute_instruction(stack_t **stack, list_t *instruction);
 stack_t *push_value(stack_t **head, int n);
 stack_t *pop_value(stack_t **head);
 stack_t *get_value(stack_t *head);
+void free_stack(stack_t *head);
 
 /* helper_funcs */
 int is_valid(char *line);
