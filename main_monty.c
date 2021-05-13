@@ -73,7 +73,7 @@ void execute_instruction(stack_t **stack, list_t *instruction)
 
 	if (strlen(instruction->str) == 0)
 		return;
-	status = is_valid(instruction->str)
+	status = is_valid(instruction->str);
 	if (!status)
 	{
 		line_n = instruction->line_n; /*betty*/
@@ -84,7 +84,7 @@ void execute_instruction(stack_t **stack, list_t *instruction)
 		exit(EXIT_FAILURE);
 	}
 	else if (status == -1)
-		return (-1);
+		return;
 	get_opcode(instruction->str, current_opcode);
 	for (i = 0; i < 2; i++)
 	{

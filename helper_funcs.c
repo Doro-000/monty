@@ -13,6 +13,7 @@ int is_valid(char *line)
 			   "mul", "mod", "pchar", "pstr", "rotl", "rotr", "stack", "queue", NULL};
 	char *temp = strdup(line);
 	char *first_string = strtok(temp, " ");
+
 	if (first_string == NULL)
 		return (-1);
 
@@ -81,6 +82,7 @@ void free_list(list_t *head)
 			free(temp);
 		}
 	}
+}
 
 /**
  * remove_unprintable - removes unprintable char from a string;
