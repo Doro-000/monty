@@ -63,7 +63,7 @@ stack_t *get_value(stack_t *head);
 int is_valid(char *line);
 list_t *add_node_end(list_t **head, char *str, unsigned int line_n);
 void free_list(list_t *head);
-void remove_newline(char *str);
+void remove_unprintable(char *str);
 
 /*instruction_manip*/
 void get_opcode(char *instruction, char *store);
