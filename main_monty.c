@@ -51,7 +51,10 @@ void execute_instruction(stack_t **stack, list_t *instruction)
 		{"push", push}, {"pall", pall},
 		{"pint", pint}, {"pop", pop},
 		{"swap", swap}, {"add", add},
-		{"nop", nop}, {NULL, NULL}
+		{"nop", nop}, {"sub", sub},
+		{"mul", mul}, {"div", div},
+		{"mod", mod}, {"pchar", pchar},
+		{"pstr", pstr}, {NULL, NULL}
 	};
 	int i, line_n;
 	char current_opcode[10], *invalid_inst;
