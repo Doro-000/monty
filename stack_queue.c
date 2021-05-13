@@ -51,7 +51,7 @@ stack_t *pop_value(stack_t **head)
 }
 
 /**
- * dlistint_len - counts the number of nodes in a linked list
+ * stack_len - counts the number of nodes in a linked list
  * @h: top of the stack/ head of doubly linked list
  *
  * Return: number of nodes

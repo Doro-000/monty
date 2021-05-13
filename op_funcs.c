@@ -112,6 +112,8 @@ void pop(stack_t **stack, unsigned int line_number)
  */
 void swap(stack_t **stack, unsigned int line_number)
 {
+	stack_t *temp_1 = NULL, *temp_2 = NULL;
+
 	if (stack_len(*stack) < 2)
 	{
 		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
@@ -119,11 +121,8 @@ void swap(stack_t **stack, unsigned int line_number)
 		free_list(monty_file_content);
 		exit(EXIT_FAILURE);
 	}
-	stack_t *temp_1 = NULL, *temp_2 = NULL;
 	temp_1 = pop_value(stack);
 	temp_2 = pop_value(stack);
 	push_value(stack, temp_1->n);
 	push_value(stack, temp_2->n);
 }
-
-
