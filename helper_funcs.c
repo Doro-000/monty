@@ -125,7 +125,7 @@ void file_into_list(FILE *stream)
 		if (is_comment(current_line))
 		{
 			line_num++;
-			continue
+			continue;
 		}
 		remove_unprintable(current_line);
 		temp = add_node_end(&monty_file_content, current_line, line_num++);
