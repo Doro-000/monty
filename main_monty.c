@@ -13,9 +13,6 @@ int main(int argc, char *argv[])
 {
 	stack_t *main_stack = NULL;
 	list_t *cursor = NULL, *temp = NULL;
-	char *current_line = NULL;
-	unsigned int line_num = 1;
-	size_t n = 0;
 	FILE *monty_file = NULL;
 
 	if (argc != 2)
@@ -29,20 +26,7 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-	while (getline(&current_line, &n, monty_file) != -1)
-	{
-		remove_unprintable(current_line);
-		temp = add_node_end(&monty_file_content, current_line, line_num++);
-		if (temp == NULL)
-		{
-			fprintf(stderr, "Error: malloc failed\n");
-			free_list(monty_file_content);
-			free(current_line);
-			exit(EXIT_FAILURE);
-		}
-	}
-	free(current_line);
-	fclose(monty_file);
+	file_into_list(monty_file);
 	cursor = monty_file_content;
 	while (cursor != NULL)
 	{
