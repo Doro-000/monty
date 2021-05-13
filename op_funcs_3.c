@@ -85,3 +85,51 @@ void pstr(stack_t **stack, unsigned int line_number __attribute__((unused)))
 	}
 	printf("\n");
 }
+
+
+/**
+ * rotl - rotate the stack to the top
+ * @stack: top of the stack/ head of doubly linked list
+ * @line_number: line number of the instruction
+ *
+ * Return: void
+ */
+void rotl(stack_t **stack, unsigned int line_number __attribute__((unused)))
+{
+	stack_t *popped = NULL;
+	stack_t *cursor = *stack;
+
+	if (stack_len(*stack) > 1)
+	{
+		while (cursor->next != NULL)
+			cursor = cursor->next;
+		popped = pop_value(stack);
+		cursor->next = popped;
+		popped->prev = cursor;
+		popped->next = NULL;
+	}
+}
+
+/**
+ * rotr - rotate the stack to the bottom
+ * @stack: top of the stack/ head of doubly linked list
+ * @line_number: line number of the instruction
+ *
+ * Return: void
+ */
+void rotr(stack_t **stack, unsigned int line_number __attribute__((unused)))
+{
+	stack_t *popped = NULL;
+	stack_t *cursor = *stack;
+
+	if (stack_len(*stack) > 1)
+	{
+		while (cursor->next != NULL)
+			cursor = cursor->next;
+		push_value(stack, cursor->n);
+		popped = cursor;
+		cursor = cursor->prev;
+		cursor->next = NULL;
+		free(popped);
+	}
+}
