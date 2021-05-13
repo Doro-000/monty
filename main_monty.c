@@ -12,7 +12,7 @@ list_t *monty_file_content = NULL;
 int main(int argc, char *argv[])
 {
 	stack_t *main_stack = NULL;
-	list_t *cursor = NULL, *temp = NULL;
+	list_t *cursor = NULL;
 	FILE *monty_file = NULL;
 
 	if (argc != 2)
