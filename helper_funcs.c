@@ -80,15 +80,14 @@ void free_list(list_t *head)
 			free(temp);
 		}
 	}
-}
 
 /**
- * remove_newline - removes new line from a string
+ * remove_unprintable - removes unprintable char from a string;
  * @str: string to be used
  *
  * Return: void
  */
-void remove_newline(char *str)
+void remove_unprintable(char *str)
 {
 	int i = 0;
 
