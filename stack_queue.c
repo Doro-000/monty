@@ -62,3 +62,21 @@ stack_t *get_value(stack_t *head)
 		return (NULL);
 	return (head);
 }
+
+/**
+ * free_stack - frees a doubly linked list/stack
+ * @head: head of the node
+ *
+ * Return: void
+ */
+void free_stack(stack_t *head)
+{
+	dlistint_t *temp = NULL;
+
+	while (head != NULL)
+	{
+		temp = head;
+		head = head->next;
+		free(temp);
+	}
+}
