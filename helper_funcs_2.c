@@ -18,6 +18,10 @@ int is_comment(char *line)
 		return (0);
 	}
 	if (*temp_2 == '#')
+	{
+		free(temp);
 		return (1);
+	}
+	free(temp);
 	return (0);
 }
