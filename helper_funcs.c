@@ -110,7 +110,7 @@ void remove_unprintable(char *str)
 /**
  * file_into_list - copies the contents of a file into a linked list
  * @stream: file stream
- * 
+ *
  * Return: void
  */
 void file_into_list(FILE *stream)
