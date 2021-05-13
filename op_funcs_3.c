@@ -53,7 +53,7 @@ void pchar(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	val = (*stack)->n;
-	if (val < 32 || val > 126)
+	if (val < 0 || val > 127)
 	{
 		fprintf(stderr, "L%d: can't pchar, value out of range\n", line_number);
 		free_stack(*stack);
@@ -75,9 +75,14 @@ void pstr(stack_t **stack, unsigned int line_number __attribute__((unused)))
 	stack_t *cursor = *stack;
 	int i;
 
+	if (stack_len(*stack) == 0) /*probably useless*/
+	{
+		printf("\n");
+		return;
+	}
 	for (i = 0; cursor != NULL; i++)
 	{
-		if (cursor->n >= 32 && cursor->n <= 126)
+		if (cursor->n > 0 && cursor->n <= 127)
 			printf("%c", cursor->n);
 		else
 			break;
