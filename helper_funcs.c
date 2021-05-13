@@ -15,8 +15,10 @@ int is_valid(char *line)
 	char *first_string = strtok(temp, " ");
 
 	if (first_string == NULL)
+	{
+		free(temp);
 		return (-1);
-
+	}
 	for (i = 0; opcodes[i] != NULL; i++)
 	{
 		if (strcmp(first_string, opcodes[i]) == 0)
