@@ -118,6 +118,7 @@ void file_into_list(FILE *stream)
 	size_t n = 0;
 	char *current_line = NULL;
 	unsigned int line_num = 1;
+	list_t *temp = NULL;
 
 	while (getline(&current_line, &n, stream) != -1)
 	{
