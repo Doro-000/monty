@@ -57,7 +57,7 @@ void execute_instruction(stack_t **stack, list_t *instruction);
 /* stack_queue*/
 stack_t *push_value(stack_t **head, int n);
 stack_t *pop_value(stack_t **head);
-int stack_len(stack_t *h)
+int stack_len(stack_t *h);
 void free_stack(stack_t *head);
 
 /* helper_funcs*/
