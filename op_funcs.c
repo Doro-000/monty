@@ -101,6 +101,7 @@ void pop(stack_t **stack, unsigned int line_number)
 		free_list(monty_file_content);
 		exit(EXIT_FAILURE);
 	}
+	free(popped);
 }
 
 /**

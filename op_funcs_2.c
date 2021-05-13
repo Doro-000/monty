@@ -22,6 +22,8 @@ void add(stack_t **stack, unsigned int line_number)
 	temp_1 = pop_value(stack);
 	temp_2 = pop_value(stack);
 	push_value(stack, temp_1->n + temp_2->n);
+	free(temp_1);
+	free(temp_2);
 }
 
 /**

@@ -14,7 +14,10 @@ stack_t *push_value(stack_t **head, int n)
 
 	new = malloc(sizeof(*new));
 	if (new == NULL || head == NULL)
+	{
+		free(new);
 		return (NULL);
+	}
 	new->n = n;
 	new->prev = NULL;
 	new->next = NULL;
@@ -45,8 +48,8 @@ stack_t *pop_value(stack_t **head)
 	if (*head == NULL)
 		return (NULL);
 	popped = *head;
-	(*head) = (*head)->next;
 	(*head)->prev = NULL;
+	(*head) = (*head)->next;
 	return (popped);
 }
 
