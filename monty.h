@@ -73,13 +73,21 @@ void get_operand(char *instruction, int **store);
 
 /*op_funcs*/
 void push(stack_t **stack, unsigned int line_number);
-void pall(stack_t **stack, unsigned int line_number __attribute__((unused)));
+void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
 
 /*op_funcs_2*/
 void add(stack_t **stack, unsigned int line_number);
-void nop(stack_t **stack __attribute__((unused)), unsigned int line_number __attribute__((unused)));
+void sub(stack_t **stack, unsigned int line_number);
+void mul(stack_t **stack, unsigned int line_number);
+void div(stack_t **stack, unsigned int line_number);
+void nop(stack_t **stack, unsigned int line_number);
+
+/*op_funcs_3*/
+void mod(stack_t **stack, unsigned int line_number);
+void pchar(stack_t **stack, unsigned int line_number);
+void pstr(stack_t **stack, unsigned int line_number);
 
 #endif /*MONTY_H*/
