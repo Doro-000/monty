@@ -54,13 +54,13 @@ extern list_t *monty_file_content;
 /*main_monty*/
 void execute_instruction(stack_t **stack, list_t *instruction);
 
-/* stack_queue */
+/* stack_queue*/
 stack_t *push_value(stack_t **head, int n);
 stack_t *pop_value(stack_t **head);
 stack_t *get_value(stack_t *head);
 void free_stack(stack_t *head);
 
-/* helper_funcs */
+/* helper_funcs*/
 int is_valid(char *line);
 list_t *add_node_end(list_t **head, char *str, unsigned int line_n);
 void free_list(list_t *head);
@@ -70,9 +70,15 @@ void remove_unprintable(char *str);
 void get_opcode(char *instruction, char *store);
 void get_operand(char *instruction, int *store);
 
-/*op_funcs.c*/
+/*op_funcs*/
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number __attribute__((unused)));
+void pint(stack_t **stack, unsigned int line_number);
+void pop(stack_t **stack, unsigned int line_number);
+void swap(stack_t **stack, unsigned int line_number);
 
+/*op_funcs_2*/
+void add(stack_t **stack, unsigned int line_number);
+void nop(stack_t **stack __attribute__((unused)), unsigned int line_number __attribute__((unused)));
 
 #endif /*MONTY_H*/
