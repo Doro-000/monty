@@ -64,7 +64,10 @@ int main(int argc, char *argv[])
 void execute_instruction(stack_t **stack, list_t *instruction)
 {
 	instruction_t opcode_map[] = {
-		{"push", push}, {"pall", pall}
+		{"push", push}, {"pall", pall},
+		{"pint", pint}, {"pop", pop},
+		{"swap", swap}, {"add", add},
+		{"nop", nop}, {NULL, NULL}
 	};
 	int i, line_n;
 	char current_opcode[10], *invalid_inst;
@@ -86,7 +89,7 @@ void execute_instruction(stack_t **stack, list_t *instruction)
 	else if (status == -1)
 		return;
 	get_opcode(instruction->str, current_opcode);
-	for (i = 0; i < 2; i++)
+	for (i = 0; opcode_map[i].opcode != NULL; i++)
 	{
 		if (strcmp(current_opcode, opcode_map[i].opcode) == 0)
 		{
