@@ -67,6 +67,9 @@ void free_list(list_t *head);
 void remove_unprintable(char *str);
 void file_into_list(FILE *stream);
 
+/*helper_funcs_2*/
+int is_comment(char *line);
+
 /*instruction_manip*/
 void get_opcode(char *instruction, char *store);
 void get_operand(char *instruction, int **store);
