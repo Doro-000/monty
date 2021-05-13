@@ -105,3 +105,31 @@ void remove_unprintable(char *str)
 	}
 	str[i] = '\0';
 }
+
+
+/**
+ * file_into_list - copies the contents of a file into a linked list
+ * @stream: file stream
+ * 
+ * Return: void
+ */
+void file_into_list(FILE *stream)
+{
+	size_t n = 0;
+	char *current_line = NULL;
+	unsigned int line_num = 1;
+
+	while (getline(&current_line, &n, stream) != -1)
+	{
+		remove_unprintable(current_line);
+		temp = add_node_end(&monty_file_content, current_line, line_num++);
+		if (temp == NULL)
+		{
+			fprintf(stderr, "Error: malloc failed\n");
+			free_list(monty_file_content);
+			free(current_line);
+			fclose(stream);
+			exit(EXIT_FAILURE);
+		}
+	}
+}
