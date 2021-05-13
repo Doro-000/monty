@@ -110,7 +110,7 @@ void div(stack_t **stack, unsigned int line_number)
 	temp_1 = pop_value(stack);
 	if (temp_1->n == 0)
 	{
-		fprintf(stderr, "L%d: division by zero", line_number);
+		fprintf(stderr, "L%d: division by zero\n", line_number);
 		free(temp_1);
 		free_stack(*stack);
 		free_list(monty_file_content);
