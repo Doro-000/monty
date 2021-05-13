@@ -24,32 +24,34 @@ void get_opcode(char *instruction, char *store)
  *
  * Return: void
  */
-void get_operand(char *instruction, int *store)
+void get_operand(char *instruction, int **store)
 {
-	char *temp = strdup(instruction);
-	char *temp_2 = strtok(temp, " ");
+	char *temp = NULL;
+	char *temp_2 = NULL;
 	int flag = 0, i = 0;
 
+	temp = strdup(instruction);
+	temp_2 = strtok(temp, " ");
 	temp_2 = strtok(NULL, " ");
 	if (temp_2 == NULL)
 	{
 		flag = 1;
-		store = NULL;
+		*store = NULL;
 	}
 	else
 	{
 		while (temp_2[i])
 		{
-			if ((*temp_2 < 48) && (*temp_2 > 57))
+			if ((temp_2[i] < 48) || (temp_2[i] > 57))
 			{
 				flag = 1;
-				store = NULL;
+				*store = NULL;
 				break;
 			}
 			i++;
 		}
 	}
 	if (!flag)
-		*store = atoi(temp_2);
+		**store = atoi(temp_2);
 	free(temp);
 }

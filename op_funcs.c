@@ -25,7 +25,7 @@ void push(stack_t **stack, unsigned int line_number)
 		}
 		cursor = cursor->next;
 	}
-	get_operand(instruction->str, operand_ptr);
+	get_operand(instruction->str, &operand_ptr);
 	if (operand_ptr == NULL)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);

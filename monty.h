@@ -68,7 +68,7 @@ void remove_unprintable(char *str);
 
 /*instruction_manip*/
 void get_opcode(char *instruction, char *store);
-void get_operand(char *instruction, int *store);
+void get_operand(char *instruction, int **store);
 
 /*op_funcs*/
 void push(stack_t **stack, unsigned int line_number);
