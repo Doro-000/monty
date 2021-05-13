@@ -13,6 +13,8 @@ int is_valid(char *line)
 			   "mul", "mod", "pchar", "pstr", "rotl", "rotr", "stack", "queue", NULL};
 	char *temp = strdup(line);
 	char *first_string = strtok(temp, " ");
+	if (first_string == NULL)
+		return (-1);
 
 	for (i = 0; opcodes[i] != NULL; i++)
 	{
