@@ -18,14 +18,12 @@ int main(int argc, char *argv[])
 	size_t n = 0;
 	FILE *monty_file = NULL;
 
-
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-	monty_file = fopen(argv[1], "r");
-	if (monty_file == NULL)
+	if ((monty_file = fopen(argv[1], "r")) == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
@@ -51,6 +49,7 @@ int main(int argc, char *argv[])
 		cursor = cursor->next;
 	}
 	free_list(monty_file_content);
+	free_stack(main_stack);
 	return (0);
 }
 
@@ -80,7 +79,7 @@ void execute_instruction(stack_t **stack, list_t *instruction)
 		invalid_inst = strtok(instruction->str, " ");
 		fprintf(stderr, "L%d: unknown instruction %s\n", line_n, invalid_inst);
 		free_list(monty_file_content);
-		/*free stack*/
+		free_stack(*stack);
 		exit(EXIT_FAILURE);
 	}
 	else if (status == -1)
