@@ -94,7 +94,7 @@ void remove_newline(char *str)
 
 	while (str[i] != '\0')
 	{
-		if (str[i] == '\n')
+		if (str[i] < ' ' || str[i] > 126)
 			break;
 		i++;
 	}
