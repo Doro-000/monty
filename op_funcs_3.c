@@ -77,7 +77,7 @@ void pstr(stack_t **stack, unsigned int line_number __attribute__((unused)))
 
 	for (i = 0; cursor != NULL; i++)
 	{
-		if (cursor->n > 0 || cursor->n <= 127)
+		if (cursor->n > 0 && cursor->n <= 127)
 			printf("%c", cursor->n);
 		else
 			break;
