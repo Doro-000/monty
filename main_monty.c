@@ -52,7 +52,7 @@ void execute_instruction(stack_t **stack, list_t *instruction)
 		{"pint", pint}, {"pop", pop},
 		{"swap", swap}, {"add", add},
 		{"nop", nop}, {"sub", sub},
-		{"mul", mul}, {"div", div},
+		{"mul", mul}, {"div", divide},
 		{"mod", mod}, {"pchar", pchar},
 		{"pstr", pstr}, {NULL, NULL}
 	};
