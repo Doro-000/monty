@@ -23,7 +23,8 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-	if ((monty_file = fopen(argv[1], "r")) == NULL)
+	monty_file = fopen(argv[1], "r");
+	if (monty_file == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
