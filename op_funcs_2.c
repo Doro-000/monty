@@ -90,13 +90,13 @@ void mul(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * div - divides the top two elements of the stack
+ * divide - divides the top two elements of the stack
  * @stack: top of the stack/ head of doubly linked list
  * @line_number: line number of the instruction
  *
  * Return: void
  */
-void div(stack_t **stack, unsigned int line_number)
+void divide(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp_1 = NULL, *temp_2 = NULL;
 
