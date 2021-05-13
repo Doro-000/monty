@@ -75,11 +75,6 @@ void pstr(stack_t **stack, unsigned int line_number __attribute__((unused)))
 	stack_t *cursor = *stack;
 	int i;
 
-	if (stack_len(*stack) == 0) /*probably useless*/
-	{
-		printf("\n");
-		return;
-	}
 	for (i = 0; cursor != NULL; i++)
 	{
 		if (cursor->n > 0 && cursor->n <= 127)
