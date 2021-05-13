@@ -42,7 +42,6 @@ list_t *add_node_end(list_t **head, char *str, unsigned int line_n)
 	new_node = malloc(sizeof(list_t));
 	if (new_node != NULL)
 	{
-		remove_newline(str);
 		new_node->str = strdup(str);
 		new_node->line_n = line_n;
 		new_node->next = NULL;
