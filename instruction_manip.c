@@ -40,6 +40,8 @@ void get_operand(char *instruction, int **store)
 	}
 	else
 	{
+		if (temp_2[i] == '-')
+			i++;
 		while (temp_2[i])
 		{
 			if ((temp_2[i] < 48) || (temp_2[i] > 57))
